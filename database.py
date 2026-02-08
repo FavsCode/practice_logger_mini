@@ -1,6 +1,7 @@
 import sqlite3
 
-def create_db(path: str = 'practice_sessions.sqlite')-> None:
+def create_db(path: str = 'practice_sessions.sqlite') -> None:
+    """Initializes the SQLite database and creates the practice_sessions table if it doesn't exist."""
     with sqlite3.connect(path) as sqlite_connection:
         cursor = sqlite_connection.cursor()
         cursor.execute('''
@@ -12,7 +13,6 @@ def create_db(path: str = 'practice_sessions.sqlite')-> None:
             notes TEXT
         )
         ''')
-
 
 if __name__ == '__main__':
     create_db()

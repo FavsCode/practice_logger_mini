@@ -16,9 +16,7 @@ A command-line session logger to create, update, read, and delete sessions.
 
 ## DOES NOT: 
 
-- Have fancy CLI 
-
-- Possess folders 
+- Have fancy CLI  
 
 - Have an account feature 
 
@@ -60,13 +58,26 @@ Show menu:
 ```bash
 practice_logger_mini/ 
 
-    main.py --> Entry point of the program 
+    docs/
+        DEVELOPMENT_LOG.md --> Logs of all significant changes according to plan
+        DEVELOPMENT_PLAN.md --> The project blueprint and objectives
+    
+    src/
+        main.py --> Entry point of the program 
 
-    practice_sessions.db --> Stores all practice session data 
+    tests/
+        test_database.py --> Contains tests for interactions with the database
+        test_session.py --> Contains tests for the CRUD operations related to database.py
 
-    database.py --> Takes info from main and operates on practice_sessions using the session model 
+    .gitignore --> Tells git to ignore the SQLite file
 
-    session.py --> Contains a session model 
+    database.py --> Operates on practice_sessions using info from the session model 
+
+    practice_sessions.sqlite --> Stores all practice session data 
+
+    README.md --> Information on the program and how to run it
+
+    session.py --> Contains a session schema and imposes rules on main/user data
 ```
 # Milestones 
 
@@ -76,9 +87,11 @@ practice_logger_mini/
 
 3. Successful CRUD operations on practice_sessions 
 
-4. CLI menu interacts with functions 
+4. Automated tests for CRUD operations
 
-5. Refactor + type hints cleanup 
+5. CLI menu interacts with functions 
+
+6. Refactor + type hints cleanup
 
 # Risk Notes 
 
