@@ -95,6 +95,8 @@ practice_logger_mini/
 
 # Risk Notes 
 
+- Archetecture could break with attempted implementation
+
 - Deletion and updating permissions given to the user could be exploited and over-delete or fully change existing data 
 
 - Database could break program 
