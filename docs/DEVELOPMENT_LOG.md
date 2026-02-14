@@ -19,3 +19,9 @@ Feb 10 2026:
 - Added placeholders for CRUD implementation
 - Added files for failed CRUD attempts
 - Gained an understanding of system responsibility
+
+Feb 13 2026:
+- Fixed circular import bug between database.py and session.py
+- Switched database.py function names into pythonic format
+- Added experiments folder to project structure
+- CRUD operations successfully implemented; not clean and ready yet

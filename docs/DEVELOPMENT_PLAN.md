@@ -61,6 +61,10 @@ practice_logger_mini/
     docs/
         DEVELOPMENT_LOG.md --> Logs of all significant changes according to plan
         DEVELOPMENT_PLAN.md --> The project blueprint and objectives
+
+    experiments/
+        database_experiment_v1.py --> First attempt at coding database.py
+        session_experiment_v1.py --> First attempt at coding session.py
     
     src/
         main.py --> Entry point of the program 
@@ -73,7 +77,7 @@ practice_logger_mini/
 
     database.py --> Operates on practice_sessions using info from the session model 
 
-    practice_sessions.sqlite --> Stores all practice session data 
+    practice_sessions.sqlite --> Stores all practice session data; made upon program startup 
 
     README.md --> Information on the program and how to run it
 
