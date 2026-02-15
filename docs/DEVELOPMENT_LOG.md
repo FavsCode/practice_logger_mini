@@ -25,3 +25,6 @@ Feb 13 2026:
 - Switched database.py function names into pythonic format
 - Added experiments folder to project structure
 - CRUD operations successfully implemented; not clean and ready yet
+
+Feb 15 2026:
+- Added README
