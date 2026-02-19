@@ -44,8 +44,8 @@ practice_sessions.sqlite stores structured session data in a local SQLite file f
 ## Roadmap/Milestones
 > 1. Database connects and is created (Done)
 > 2. Session model exists (Done)
-> 3. Successful CRUD operations on practice_sessions (In progress)
-> 4. Automated tests for CRUD operations
+> 3. Successful CRUD operations on practice_sessions (Done)
+> 4. Automated tests for CRUD operations (In progress)
 > 5. CLI menu interacts with functions 
 > 6. Refactor + type hints cleanup 
 
