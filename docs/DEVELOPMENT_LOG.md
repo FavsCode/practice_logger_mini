@@ -28,3 +28,7 @@ Feb 13 2026:
 
 Feb 15 2026:
 - Added README
+
+Feb 18 2026:
+- Added data checks and validation in session.py 
+- <b>Milestone #3 reached, "Successful CRUD operations on practice_sessions"</b>
