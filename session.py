@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from pathlib import Path
 from datetime import date, datetime
 from database import insert_session, delete_session as db_delete_session, update_session as db_update_session, select_sessions
 
@@ -18,7 +19,12 @@ def check_date_format(date_str: str) -> date | bool:
     except ValueError:
         return False
 
-def create_session(date: str, duration: int, focus: str = "No Focus", notes: str | None = None, id: int | None = None) -> str:
+def create_session(date: str,
+                   duration: int,
+                   focus: str = "No Focus", 
+                   notes: str | None = None, 
+                   id: int | None = None,
+                   path: Path | None = None) -> str:
     """Creates new session with user-inputted information."""
     if not check_date_format(date):
         return "Error: Invalid date format."
@@ -43,8 +49,16 @@ def create_session(date: str, duration: int, focus: str = "No Focus", notes: str
         return "Error: Invalid notes format."
 
     # User date is already validated, so this will not return an error.
-    new_session = Session(date=user_date, duration=duration, focus=focus, notes=notes, id=id) # type: ignore
-    insert_session(new_session)
+    new_session = Session(date=user_date, # type: ignore
+                          duration=duration, 
+                          focus=focus, 
+                          notes=notes, 
+                          id=id) 
+    
+    if path:
+        insert_session(new_session, path=path)
+    else:
+        insert_session(new_session)
     return "Session successfully created."
 
 def read_sessions() -> list[tuple]:
