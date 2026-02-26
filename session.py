@@ -61,9 +61,12 @@ def create_session(date: str,
         insert_session(new_session)
     return "Session successfully created."
 
-def read_sessions() -> list[tuple]:
+def read_sessions(path: None | Path) -> list[tuple]:
     """Reads out session data."""
-    return select_sessions()
+    if not path:
+        return select_sessions()
+    else:
+        return select_sessions(path=path)
 
 def update_session(session_aspect: str, edit: str | int, date: str) -> str:
     """Replaces a session's data with new user-inputted info."""
