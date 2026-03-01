@@ -38,3 +38,6 @@ Feb 20 2026:
 
 Feb 25 2026:
 - Added read_sessions() testing
+
+Feb 28 2026:
+- Added update_session() testing

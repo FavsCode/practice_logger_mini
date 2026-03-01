@@ -68,24 +68,36 @@ def read_sessions(path: None | Path) -> list[tuple]:
     else:
         return select_sessions(path=path)
 
-def update_session(session_aspect: str, edit: str | int, date: str) -> str:
+def update_session(session_aspect: str, edit: str | int, date: str, path: Path) -> str:
     """Replaces a session's data with new user-inputted info."""
     try:
         if session_aspect == "duration":
             edit = int(edit)
-        elif session_aspect in {"focus", "notes"}:
+        elif session_aspect in {"focus", "notes", "date"}:
             edit = str(edit)
             if session_aspect == "focus" and not edit:
                 edit = "No Focus"
     except ValueError:
         return "Error: Invalid edit format."
     
+    allowed_fields = {"duration", "focus", "notes", "date"}
+    if session_aspect not in allowed_fields:
+        raise ValueError(f"Invalid session aspect: {session_aspect}. Allowed aspects are: {allowed_fields}")
+    
     try:
         user_date = datetime.strptime(str(date), "%Y-%m-%d").date()
     except ValueError:
         return "Error: Invalid date format."
     
-    db_update_session(session_aspect, edit, user_date)
+    allowed_fields = {"duration", "focus", "notes", "date"}
+    if session_aspect not in allowed_fields:
+        raise ValueError(f"Invalid session aspect: {session_aspect}. Allowed aspects are: {allowed_fields}")
+
+    if path:
+        db_update_session(session_aspect, edit, user_date, path)
+    else:
+        db_update_session(session_aspect, edit, user_date, path)
+
     return "Session updated successfully."
 
 def delete_session(date: str) -> str:

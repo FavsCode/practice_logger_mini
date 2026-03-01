@@ -39,10 +39,6 @@ def delete_session(date: date, path: Path | str = 'practice_sessions.sqlite') ->
 
 def update_session(session_aspect: str, edit: str | int, date: date, path: Path | str = 'practice_sessions.sqlite') -> None:
     """Updates session data from the database."""
-    allowed_fields = {"duration", "focus", "notes"}
-    if session_aspect not in allowed_fields:
-        raise ValueError(f"Invalid session aspect: {session_aspect}. Allowed aspects are: {allowed_fields}")
-
     with sqlite3.connect(path) as sqlite_connection:
         cursor = sqlite_connection.cursor()
         cursor.execute(f'''
