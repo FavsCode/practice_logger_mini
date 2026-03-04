@@ -41,3 +41,7 @@ Feb 25 2026:
 
 Feb 28 2026:
 - Added update_session() testing
+
+Mar 3 2026:
+- Added delete_session() testing
+- <b>Milestone #4 reached, "Automated tests for CRUD operations"</b>

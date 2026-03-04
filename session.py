@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from os import path
 from pathlib import Path
 from datetime import date, datetime
 from database import insert_session, delete_session as db_delete_session, update_session as db_update_session, select_sessions
@@ -68,7 +69,7 @@ def read_sessions(path: None | Path) -> list[tuple]:
     else:
         return select_sessions(path=path)
 
-def update_session(session_aspect: str, edit: str | int, date: str, path: Path) -> str:
+def update_session(session_aspect: str, edit: str | int, date: str, path: None | Path) -> str:
     """Replaces a session's data with new user-inputted info."""
     try:
         if session_aspect == "duration":
@@ -96,16 +97,16 @@ def update_session(session_aspect: str, edit: str | int, date: str, path: Path) 
     if path:
         db_update_session(session_aspect, edit, user_date, path)
     else:
-        db_update_session(session_aspect, edit, user_date, path)
+        db_update_session(session_aspect, edit, user_date) # ignore
 
     return "Session updated successfully."
 
-def delete_session(date: str) -> str:
+def delete_session(date: str, path: None | Path) -> str:
     """Deletes a session's data."""
     if not check_date_format(date):
         return "Error: Invalid date format."
     
     user_date = check_date_format(date) # User date is already validated, so this will not return False.
-
-    db_delete_session(user_date) # type: ignore
+    
+    db_delete_session(user_date, path) # type: ignore
     return "Session deleted successfully."
