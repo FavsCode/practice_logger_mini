@@ -45,3 +45,6 @@ Feb 28 2026:
 Mar 3 2026:
 - Added delete_session() testing
 - <b>Milestone #4 reached, "Automated tests for CRUD operations"</b>
+
+Mar 6 2026:
+- Created main.py framework for functionality
