@@ -56,6 +56,3 @@ def select_sessions(path: Path | str = 'practice_sessions.sqlite') -> list[tuple
         SELECT * FROM practice_sessions 
         ''')
         return cursor.fetchall()
-
-if __name__ == '__main__':
-    create_db()

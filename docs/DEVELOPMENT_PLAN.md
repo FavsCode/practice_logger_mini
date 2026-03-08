@@ -67,21 +67,24 @@ practice_logger_mini/
         session_experiment_v1.py --> First attempt at coding session.py
     
     src/
+        __init__.py --> Initializes module
         main.py --> Entry point of the program 
-
+        database.py --> Operates on practice_sessions using info from the session model
+        session.py --> Contains a session schema and imposes rules on main/user data
+        
     tests/
         test_database.py --> Contains tests for interactions with the database
         test_session.py --> Contains tests for the CRUD operations related to database.py
 
     .gitignore --> Tells git to ignore the SQLite file
 
-    database.py --> Operates on practice_sessions using info from the session model 
-
     practice_sessions.sqlite --> Stores all practice session data; made upon program startup 
+
+    pytest.ini --> Prevents src module import error
 
     README.md --> Information on the program and how to run it
 
-    session.py --> Contains a session schema and imposes rules on main/user data
+    
 ```
 # Milestones 
 

@@ -49,3 +49,12 @@ Mar 3 2026:
 
 Mar 6 2026:
 - Created main.py framework for functionality
+
+Mar 8 2026:
+- Moved database.py and session.py to src folder
+- Added .pytest.ini to fix src module error (.gitignored)
+- Updated test_database.py and test_session.py for new changes
+- Updated README with new additions
+- Updated DEVELOPMENT PLAN with new file structure
+- Finshed main.py and tested it
+- <b> Milestone #5 reached, "CLI menu interacts with functions"

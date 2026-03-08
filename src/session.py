@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from os import path
 from pathlib import Path
 from datetime import date, datetime
-from database import insert_session, delete_session as db_delete_session, update_session as db_update_session, select_sessions
+from src.database import insert_session, delete_session as db_delete_session, update_session as db_update_session, select_sessions
 
 @dataclass
 class Session:
@@ -62,7 +62,7 @@ def create_session(date: str,
         insert_session(new_session)
     return "Session successfully created."
 
-def read_sessions(path: None | Path) -> list[tuple]:
+def read_sessions(path: Path | None) -> list[tuple]:
     """Reads out session data."""
     if not path:
         return select_sessions()
@@ -83,7 +83,7 @@ def update_session(session_aspect: str, edit: str | int, date: str, path: None |
     
     allowed_fields = {"duration", "focus", "notes", "date"}
     if session_aspect not in allowed_fields:
-        raise ValueError(f"Invalid session aspect: {session_aspect}. Allowed aspects are: {allowed_fields}")
+        return (f"Invalid session aspect: {session_aspect}. Allowed aspects are: {allowed_fields}")
     
     try:
         user_date = datetime.strptime(str(date), "%Y-%m-%d").date()
@@ -92,7 +92,7 @@ def update_session(session_aspect: str, edit: str | int, date: str, path: None |
     
     allowed_fields = {"duration", "focus", "notes", "date"}
     if session_aspect not in allowed_fields:
-        raise ValueError(f"Invalid session aspect: {session_aspect}. Allowed aspects are: {allowed_fields}")
+        return (f"Invalid session aspect: {session_aspect}. Allowed aspects are: {allowed_fields}")
 
     if path:
         db_update_session(session_aspect, edit, user_date, path)
@@ -104,9 +104,9 @@ def update_session(session_aspect: str, edit: str | int, date: str, path: None |
 def delete_session(date: str, path: None | Path) -> str:
     """Deletes a session's data."""
     if not check_date_format(date):
-        return "Error: Invalid date format."
+        return "\nError: Invalid date format."
     
     user_date = check_date_format(date) # User date is already validated, so this will not return False.
     
-    db_delete_session(user_date, path) # type: ignore
+    db_delete_session(date=user_date) # type: ignore
     return "Session deleted successfully."

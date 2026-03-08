@@ -1,7 +1,6 @@
 import pytest
 from pathlib import Path
-from database import create_db
-from session import Session
+from src.database import create_db
 
 @pytest.fixture
 def database_path(tmp_path: Path) -> Path:
