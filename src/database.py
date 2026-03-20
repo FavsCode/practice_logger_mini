@@ -1,3 +1,4 @@
+"""Contains operations on the SQLite database, such as creating the database, inserting, deleting, updating, and selecting session data."""
 import sqlite3
 from datetime import date
 from pathlib import Path
@@ -53,6 +54,7 @@ def select_sessions(path: Path | str = 'practice_sessions.sqlite') -> list[tuple
     with sqlite3.connect(path) as sqlite_connection:
         cursor = sqlite_connection.cursor()
         cursor.execute('''
-        SELECT * FROM practice_sessions 
+        SELECT * FROM practice_sessions
+        ORDER BY id
         ''')
         return cursor.fetchall()

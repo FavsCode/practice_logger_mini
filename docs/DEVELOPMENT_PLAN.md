@@ -68,7 +68,6 @@ practice_logger_mini/
     
     src/
         __init__.py --> Initializes module
-        main.py --> Entry point of the program 
         database.py --> Operates on practice_sessions using info from the session model
         session.py --> Contains a session schema and imposes rules on main/user data
         
@@ -78,10 +77,10 @@ practice_logger_mini/
 
     .gitignore --> Tells git to ignore the SQLite file
 
+    main.py --> Entry point of the program
+
     practice_sessions.sqlite --> Stores all practice session data; made upon program startup 
-
-    pytest.ini --> Prevents src module import error
-
+    
     README.md --> Information on the program and how to run it
 
     

@@ -1,3 +1,4 @@
+"""Tests for the session module."""
 import pytest
 from pathlib import Path
 from src.session import create_session, read_sessions, update_session, delete_session
@@ -88,7 +89,7 @@ def test_delete_session_deletes_session_data(database_path: Path, test_data: lis
     delete_session("2026-03-21", path=database_path)
 
     sessions = read_sessions(path=database_path)
-    
+
     assert len(sessions) == 2
     assert sessions[0] == (1, "2026-02-20", 60, "Repetition", None)
     assert sessions[1] == (3, "2026-04-22", 45, "No Focus", None)

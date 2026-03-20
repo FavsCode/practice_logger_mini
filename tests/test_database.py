@@ -1,3 +1,4 @@
+""""Tests for the database module."""
 import pytest
 from pathlib import Path
 from src.database import create_db

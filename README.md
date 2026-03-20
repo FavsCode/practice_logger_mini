@@ -1,7 +1,7 @@
 # Practice Session Logger Mini
 A command-line session logger to create, update, read, and delete musical practice session data.
 
-**Status: Currently in active development.**
+**Status: Completed. Updates slowly/not at all**
 
 ## Features
 - SQLite database storage
@@ -47,7 +47,7 @@ practice_sessions.sqlite stores structured session data in a local SQLite file f
 > 3. Successful CRUD operations on practice_sessions (Done)
 > 4. Automated tests for CRUD operations (Done)
 > 5. CLI menu interacts with functions (Done)
-> 6. Refactor + type hints cleanup (In progress)
+> 6. Refactor + type hints cleanup (Done)
 
 ## Tech Stack
 - **Language:** Python

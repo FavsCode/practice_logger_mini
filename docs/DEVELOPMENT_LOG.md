@@ -57,4 +57,16 @@ Mar 8 2026:
 - Updated README with new additions
 - Updated DEVELOPMENT PLAN with new file structure
 - Finshed main.py and tested it
-- <b> Milestone #5 reached, "CLI menu interacts with functions"
+- <b> Milestone #5 reached, "CLI menu interacts with functions" <b>
+
+Mar 20 2026:
+- Fixed src importing issues
+- Confirmed code was pythonic and easy to read
+- Updated README
+- Fixed delete() testing error
+- Moved main.py into the project root
+- Deleted .pytest.ini
+- Updated DEVELOPMENT_PLAN.md
+- Updated code and made general refactors/repairs
+- Finished project
+- <b> Milestone #6 reached, "Refactor + type hints cleanup" <b>

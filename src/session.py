@@ -1,8 +1,9 @@
+"""This module contains the Session dataclass and functions to create, read, update, and delete sessions. It is the service layer of the application."""
 from dataclasses import dataclass
 from os import path
 from pathlib import Path
 from datetime import date, datetime
-from src.database import insert_session, delete_session as db_delete_session, update_session as db_update_session, select_sessions
+from .database import insert_session, delete_session as db_delete_session, update_session as db_update_session, select_sessions
 
 @dataclass
 class Session:
@@ -60,6 +61,7 @@ def create_session(date: str,
         insert_session(new_session, path=path)
     else:
         insert_session(new_session)
+
     return "Session successfully created."
 
 def read_sessions(path: Path | None) -> list[tuple]:
@@ -107,6 +109,9 @@ def delete_session(date: str, path: None | Path) -> str:
         return "\nError: Invalid date format."
     
     user_date = check_date_format(date) # User date is already validated, so this will not return False.
-    
-    db_delete_session(date=user_date) # type: ignore
+    if path:
+        db_delete_session(date=user_date, path=path) # type: ignore
+    else: 
+        db_delete_session(date=user_date) # type: ignore
+
     return "Session deleted successfully."

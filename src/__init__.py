@@ -1,1 +1,1 @@
-"""Empty folder to initialize module."""
+"""An empty folder to make src a package."""
