@@ -1,5 +1,5 @@
 """Main module and entry point for Practice Logger Mini."""
-from session import create_session, read_sessions, update_session, delete_session
+from src.session import create_session, read_sessions, update_session, delete_session
 from src.database import create_db
 
 def divider():
