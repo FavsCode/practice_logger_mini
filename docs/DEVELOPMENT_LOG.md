@@ -70,3 +70,10 @@ Mar 20 2026:
 - Updated code and made general refactors/repairs
 - Finished project
 - <b> Milestone #6 reached, "Refactor + type hints cleanup" <b>
+
+Mar 21 2026:
+- Improved UI a bit
+- Fixed menu crash bug from no input
+- Made the last session's data show up upon startup
+- Split up main.py commands into more functions
+- Fixed bug where database was created outside of the program folder

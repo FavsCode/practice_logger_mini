@@ -1,7 +1,7 @@
 """Tests for the session module."""
 import pytest
 from pathlib import Path
-from src.session import create_session, read_sessions, update_session, delete_session
+from src.session import create_session, read_sessions, see_last_session, update_session, delete_session
 from src.database import create_db
 
 @pytest.fixture
@@ -93,3 +93,10 @@ def test_delete_session_deletes_session_data(database_path: Path, test_data: lis
     assert len(sessions) == 2
     assert sessions[0] == (1, "2026-02-20", 60, "Repetition", None)
     assert sessions[1] == (3, "2026-04-22", 45, "No Focus", None)
+
+def test_last_session_returns_most_recent_session(database_path: Path, test_data: list[dict]) -> None:
+    create_test_sessions(database_path, test_data)
+
+    last_session = see_last_session(path=database_path)
+
+    assert last_session == "Date: 2026-04-22, Duration: 45 minutes, Focus: No Focus, Notes: None"

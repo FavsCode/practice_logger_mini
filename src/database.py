@@ -3,7 +3,7 @@ import sqlite3
 from datetime import date
 from pathlib import Path
 
-def create_db(path: Path | str = 'practice_sessions.sqlite') -> None:
+def create_db(path: Path | str = 'practice_logger_mini/practice_sessions.sqlite') -> None:
     """Initializes the SQLite database and creates the practice_sessions table if it doesn't exist."""
     with sqlite3.connect(path) as sqlite_connection:
         cursor = sqlite_connection.cursor()

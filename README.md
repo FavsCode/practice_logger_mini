@@ -56,7 +56,7 @@ practice_sessions.sqlite stores structured session data in a local SQLite file f
 ## Future Goals
 - Scale up to the full-sized practice logger
 - Add comprehensive data summaries
-- Show last session data upon startup
+- Show last session data upon startup (Implemented!)
 - Built-in timer to track session duration while the app is running
 - Support multi-user accounts
 - Improve accessibility through a desktop app, widget, or packaged download

@@ -115,3 +115,12 @@ def delete_session(date: str, path: None | Path) -> str:
         db_delete_session(date=user_date) # type: ignore
 
     return "Session deleted successfully."
+
+def see_last_session(path: None | Path) -> str:
+    """Returns the most recent session's data."""
+    sessions = read_sessions(path)
+    if not sessions:
+        return "No sessions found."
+    
+    last_session = sessions[-1]
+    return f"Date: {last_session[1]}, Duration: {last_session[2]} minutes, Focus: {last_session[3]}, Notes: {last_session[4]}"
